@@ -1,0 +1,13 @@
+---
+import '$lib/styles/app.css';
+import MainLayout from '../layouts/MainLayout.astro';
+import RegisterForm from '../lib/components/RegisterForm.svelte';
+---
+
+<MainLayout title="Register">
+  <h1 class="text-3xl font-bold mb-6">Create an Account</h1>
+  <RegisterForm client:load />
+  <p class="mt-4 text-center">
+    Already have an account? <a href="/login" class="text-blue-500 hover:underline">Log in</a>
+  </p>
+</MainLayout>

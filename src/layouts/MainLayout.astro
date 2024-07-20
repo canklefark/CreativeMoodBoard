@@ -1,0 +1,42 @@
+---
+import Header from '../lib/components/Header.svelte';
+import Footer from '../lib/components/Footer.svelte';
+import ThemeToggle from '../lib/components/ThemeToggle.svelte';
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title} - CreativeMoodBoard</title>
+  </head>
+  <body
+    class="grid grid-rows-[auto_1fr_auto] min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white">
+    <Header client:load />
+    <main class="container mx-auto px-4 py-8">
+      <slot />
+    </main>
+    <Footer />
+    <ThemeToggle client:load />
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+
+      if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+      window.localStorage.setItem('theme', theme);
+    </script>
+  </body>
+</html>

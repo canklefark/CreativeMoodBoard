@@ -1,0 +1,20 @@
+---
+import '$lib/styles/app.css';
+import MainLayout from '../layouts/MainLayout.astro';
+import ImageUploader from '../lib/components/ImageUploader.svelte';
+import ColorPalette from '../lib/components/ColorPalette.svelte';
+---
+
+<MainLayout title="Create Mood Board">
+  <h1 class="text-3xl font-bold mb-6">Create Your Mood Board</h1>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div>
+      <h2 class="text-2xl font-semibold mb-4">Add Images</h2>
+      <ImageUploader client:load />
+    </div>
+    <div>
+      <h2 class="text-2xl font-semibold mb-4">Choose Colors</h2>
+      <ColorPalette client:load />
+    </div>
+  </div>
+</MainLayout>

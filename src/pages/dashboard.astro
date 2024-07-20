@@ -1,0 +1,10 @@
+---
+import '$lib/styles/app.css';
+import MainLayout from '../layouts/MainLayout.astro';
+import MoodBoardList from '../lib/components/MoodBoardList.svelte';
+---
+
+<MainLayout title="Dashboard">
+  <h1 class="text-3xl font-bold mb-6">Your Dashboard</h1>
+  <MoodBoardList client:load />
+</MainLayout>

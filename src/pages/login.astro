@@ -1,0 +1,13 @@
+---
+import '$lib/styles/app.css';
+import MainLayout from '../layouts/MainLayout.astro';
+import LoginForm from '../lib/components/LoginForm.svelte';
+---
+
+<MainLayout title="Login">
+  <h1 class="text-3xl font-bold mb-6">Log In</h1>
+  <LoginForm client:load />
+  <p class="mt-4 text-center">
+    Don't have an account? <a href="/register" class="text-blue-500 hover:underline">Register</a>
+  </p>
+</MainLayout>
